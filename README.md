@@ -65,10 +65,6 @@ Below is an example of the sample JSON input and output for the API gateway:
 }
 ```
 
-## Usage
-
-Build and start the microservices using Docker Compose: `docker-compose up -d`
-
 ## Limitations and Improvements
 
 It's important to note the limitations of this project due to its simple implementation within a short time frame and it has room for further enhancements and optimizations.
