@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6.0.7
+    container_name: 'mongo'
+    ports:
+      - "27017:27017"
+    volumes:
+      - .db:/data/db
+
+  data_extractor:
+    build: data_extractor
+    network_mode: 'host'
+    restart: always
+    volumes:
+      - .checkpoints:/data_extractor/app/data/checkpoints
+    command: tail -F anything
+
+  rabbitmq:
+    image: rabbitmq:3.12.1-management
+    container_name: 'rabbitmq'
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  model:
+    build: model
+    network_mode: 'host'
+    deploy:
+      replicas: 1 #10
+    restart: always
+
+  data_provider:
+    build: data_provider
+    network_mode: 'host'
+    deploy:
+      replicas: 1 #10
+    restart: always
+
+  api_gateway:
+    build: api_gateway
+    network_mode: 'host'
+    ports:
+      - "8076:8086"
+    restart: always
+
+
