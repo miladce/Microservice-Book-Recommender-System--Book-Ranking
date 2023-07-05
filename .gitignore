@@ -1,0 +1,17 @@
+__pycache__/
+
+*.chkp
+.db/
+.checkpoints/
+.ipynb_checkpoints
+tmp_*
+dummy*
+
+*.csv
+
+test_*
+*.log
+*_env/
+.coverage.*
+.pytest_cache/
+
