@@ -3,6 +3,7 @@ __pycache__/
 *.chkp
 .db/
 .checkpoints/
+.idea/
 .ipynb_checkpoints
 tmp_*
 dummy*
